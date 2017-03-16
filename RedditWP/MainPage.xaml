@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="RedditWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RedditWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.Resources>
+            <Storyboard x:Name="SummonRadialMenu">
+                <RepositionThemeAnimation Storyboard.TargetName="radialMenu" FromVerticalOffset="400"/>
+            </Storyboard>
+            <Storyboard x:Name="BanishRadialMenu">
+                <RepositionThemeAnimation Storyboard.TargetName="radialMenu" FromVerticalOffset="0"/>
+            </Storyboard>
+        </Grid.Resources>
+        
+        <GridView x:Name="posts" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="590"/>
+        <local:RadialMenu x:Name="radialMenu" HorizontalAlignment="Left" Margin="292,807,0,-300" VerticalAlignment="Top" Width="68" Height="133" IsEnabled="False" Visibility="Collapsed"/>
+        <Grid HorizontalAlignment="Left" Height="50" Margin="0,590,0,0" VerticalAlignment="Top" Width="360" Background="Black">
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="294,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
+            <Button x:Name="button_Copy" Content="Button" HorizontalAlignment="Left" Margin="224,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
+            <Button x:Name="button_Copy1" Content="Button" HorizontalAlignment="Left" Margin="153,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
+            <Button x:Name="button_Copy2" Content="Button" HorizontalAlignment="Left" Margin="83,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
+        </Grid>
+        
+    </Grid>
+</Page>
