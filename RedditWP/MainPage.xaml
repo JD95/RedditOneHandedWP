@@ -17,7 +17,15 @@
             </Storyboard>
         </Grid.Resources>
         
-        <GridView x:Name="posts" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Height="590"/>
+        <Pivot x:Name="postsPivot" Title="Content" Margin="0,0,0,55" ManipulationMode="None">
+            <PivotItem Header="Posts" Margin="12,0,12,6">
+                <GridView x:Name="posts" HorizontalAlignment="Left" VerticalAlignment="Top" Width="336" Height="484"/>
+            </PivotItem>
+            <PivotItem Header="Comments">
+                <GridView x:Name="comments" HorizontalAlignment="Left" VerticalAlignment="Top" Width="334" Height="484"/>
+            </PivotItem>
+        </Pivot>
+        
         <local:RadialMenu x:Name="radialMenu" HorizontalAlignment="Left" Margin="292,807,0,-300" VerticalAlignment="Top" Width="68" Height="133" IsEnabled="False" Visibility="Collapsed"/>
         <Grid HorizontalAlignment="Left" Height="50" Margin="0,590,0,0" VerticalAlignment="Top" Width="360" Background="Black">
             <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="294,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>

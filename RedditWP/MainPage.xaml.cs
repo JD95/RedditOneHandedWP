@@ -46,6 +46,28 @@ namespace RedditWP
                 post.setText(postTitles[i]);
                 this.posts.Items.Add(post);
             }
+
+            radialMenu.setMenuOptions("upvote", switchToComments, 
+                                      "downvote", switchToComments, 
+                                      "comments", switchToComments);
+        }
+
+        public void switchToComments(object sender, RoutedEventArgs e)
+        {
+            postsPivot.SelectedIndex = 1;
+            banishRadialMenu();
+            radialMenu.setMenuOptions("upvote", switchToComments,
+                                      "downvote", switchToComments,
+                                      "posts", returnToPosts);
+        }
+
+        public void returnToPosts(object sender, RoutedEventArgs e)
+        {
+            postsPivot.SelectedIndex = 0;
+            banishRadialMenu();
+            radialMenu.setMenuOptions("upvote", switchToComments,
+                                      "downvote", switchToComments,
+                                      "comments", switchToComments);
         }
 
         public void summonRadialMenu()
@@ -61,7 +83,7 @@ namespace RedditWP
             radialMenu.Margin = new Thickness(292, 807, 0, -300);
             radialMenu.IsEnabled = false;
             radialMenu.Visibility = Visibility.Collapsed;
-            SummonRadialMenu.Begin();
+            BanishRadialMenu.Begin();
         }
     }
 }

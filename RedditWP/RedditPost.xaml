@@ -6,20 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="107.784" Width="338.731">
+    d:DesignHeight="107.784" Width="303">
 
-    <Grid Background="#FFAEAEAE" Margin="0,0,-0.333,-0.333">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="108" Margin="194,0,0,0" VerticalAlignment="Top" Width="100" Source="Assets/logo.png">
+    <Grid Background="#FFAEAEAE" Margin="0,0,0,-0.333">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="108" Margin="163,0,0,0" VerticalAlignment="Top" Width="100" Source="Assets/logo.png">
         </Image>
 
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="This is the very best block of text ever!" VerticalAlignment="Top" Height="88" Width="179"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="This is the very best block of text ever!" VerticalAlignment="Top" Height="88" Width="153"/>
 
-        <Grid x:Name="postOptions"  HorizontalAlignment="Left" Height="108" Margin="299,0,0,0" VerticalAlignment="Top" Width="40" Visibility="Collapsed">
+        <Grid x:Name="postOptions"  HorizontalAlignment="Left" Height="108" Margin="263,0,0,0" VerticalAlignment="Top" Width="40">
             <Button x:Name="upvote" Content="^" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF0CFF00" Width="40"/>
             <Button x:Name="downvote" Content="V" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Height="36" Width="40" Background="Red"/>
             <Button x:Name="menu" Content="..." HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="menu_Click"/>
         </Grid>
-        <Button x:Name="selectPost" Content="" HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Top" Height="108" Width="40" Background="#FF5B5B5B" Click="selectPost_Click"/>
+        <Button x:Name="selectPost" Content="" HorizontalAlignment="Left" Margin="263,0,0,0" VerticalAlignment="Top" Height="108" Width="40" Background="#FF5B5B5B" Click="selectPost_Click"/>
 
     </Grid>
 </UserControl>
