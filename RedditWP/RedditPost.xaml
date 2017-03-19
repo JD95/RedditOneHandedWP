@@ -19,7 +19,8 @@
             <Button x:Name="downvote" Content="V" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Height="36" Width="40" Background="Red"/>
             <Button x:Name="menu" Content="..." HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="menu_Click"/>
         </Grid>
-        <Button x:Name="selectPost" Content="" HorizontalAlignment="Left" Margin="263,0,0,0" VerticalAlignment="Top" Height="108" Width="40" Background="#FF5B5B5B" Click="selectPost_Click"/>
+        <Rectangle x:Name="selectPost" HorizontalAlignment="Left" Margin="263,0,0,0" VerticalAlignment="Top" Height="108" Width="40" Fill="#FF232323"/>
+        <Rectangle x:Name="hidden" Fill="#7F232323" HorizontalAlignment="Left" Height="108" VerticalAlignment="Top" Width="263" Visibility="Collapsed"/>
 
     </Grid>
 </UserControl>

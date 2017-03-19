@@ -22,6 +22,8 @@ namespace RedditWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        RedditPost focused = null;
+
         string[] postTitles =
         {
             "fat kitty",
@@ -44,12 +46,19 @@ namespace RedditWP
                 var post = new RedditPost(this);
                 post.setImage(i.ToString() + ".jpg");
                 post.setText(postTitles[i]);
+                post.PointerPressed += pressPost;
                 this.posts.Items.Add(post);
+            }
+
+            for(int i = 0; i < 10; i++)
+            {
+                this.comments.Items.Add(new PostComment("someone dumb", "This is a super bad comment!!! RAGE!"));
             }
 
             radialMenu.setMenuOptions("upvote", switchToComments, 
                                       "downvote", switchToComments, 
                                       "comments", switchToComments);
+            radialMenu.PointerExited += (o,e) => { banishRadialMenu(); };
         }
 
         public void switchToComments(object sender, RoutedEventArgs e)
@@ -84,6 +93,47 @@ namespace RedditWP
             radialMenu.IsEnabled = false;
             radialMenu.Visibility = Visibility.Collapsed;
             BanishRadialMenu.Begin();
+        }
+
+        public void pressPost(object sender, PointerRoutedEventArgs e)
+        {
+            var post = sender as RedditPost;
+            if (post == null) return;
+
+            if(focused == null) // If nothing is currently focused, select this
+            {
+                // Focus the current post
+                focused = post;
+
+                post.focusPost();
+
+                foreach (var p in posts.Items.Select(i => i as RedditPost))
+                {
+                    if (p != null && p != post)
+                    {
+                        p.hide();
+                        p.IsEnabled = false;
+                    }
+                }
+            }
+            else if (post == focused) // The same post has been pressed again
+            {
+                // Unfocus the current post
+                focused = null;
+
+                post.unfocusPost();
+
+                foreach (var p in posts.Items.Select(i => i as RedditPost))
+                {
+                    if (p != null)
+                    {
+                        p.IsEnabled = true;
+                        p.unhide();
+                    }
+                }
+            }
+
+            // Otherwise the press event is ignored
         }
     }
 }

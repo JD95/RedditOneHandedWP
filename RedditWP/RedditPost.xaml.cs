@@ -39,10 +39,26 @@ namespace RedditWP
             this.textBlock.Text = text;
         }
 
-        private void selectPost_Click(object sender, RoutedEventArgs e)
+        public void focusPost()
         {
             this.postOptions.Visibility = Visibility.Visible;
             this.selectPost.Visibility = Visibility.Collapsed;
+        }
+
+        public void unfocusPost()
+        {
+            this.postOptions.Visibility = Visibility.Collapsed;
+            this.selectPost.Visibility = Visibility.Visible;
+        }
+
+        public void hide()
+        {
+            hidden.Visibility = Visibility.Visible;
+        }
+
+        public void unhide()
+        {
+            hidden.Visibility = Visibility.Collapsed;
         }
 
         private void menu_Click(object sender, RoutedEventArgs e)
