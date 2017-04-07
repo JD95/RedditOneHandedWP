@@ -16,7 +16,7 @@
                 <RepositionThemeAnimation Storyboard.TargetName="radialMenu" FromVerticalOffset="0"/>
             </Storyboard>
         </Grid.Resources>
-        
+
         <Pivot x:Name="postsPivot" Title="Content" Margin="0,0,0,55" ManipulationMode="None">
             <PivotItem Header="Posts" Margin="12,0,12,6">
                 <GridView x:Name="posts" HorizontalAlignment="Left" VerticalAlignment="Top" Width="336" Height="484"/>
@@ -25,14 +25,14 @@
                 <GridView x:Name="comments" HorizontalAlignment="Left" VerticalAlignment="Top" Width="334" Height="484"/>
             </PivotItem>
         </Pivot>
-        
+
         <local:RadialMenu x:Name="radialMenu" HorizontalAlignment="Left" Margin="292,807,0,-300" VerticalAlignment="Top" Width="68" Height="133" IsEnabled="False" Visibility="Collapsed"/>
-        <Grid HorizontalAlignment="Left" Height="50" Margin="0,590,0,0" VerticalAlignment="Top" Width="360" Background="Black">
-            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="294,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
-            <Button x:Name="button_Copy" Content="Button" HorizontalAlignment="Left" Margin="224,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
-            <Button x:Name="button_Copy1" Content="Button" HorizontalAlignment="Left" Margin="153,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
-            <Button x:Name="button_Copy2" Content="Button" HorizontalAlignment="Left" Margin="83,0,0,0" VerticalAlignment="Top" Width="66" Height="50" Background="#FF9C9C9C"/>
+        <Grid HorizontalAlignment="Left" Height="55" Margin="0,585,0,0" VerticalAlignment="Top" Width="360" Background="White">
+
+            <Button x:Name="nightbutton" Content="Night Mode" HorizontalAlignment="Left" Margin="180,0,0,0" VerticalAlignment="Top" Width="173" Height="50" Background="#FF9C9C9C" Click="nightbutton_Click"/>
+            <Button x:Name="button_Copy2" Content="Picture Mode" HorizontalAlignment="Right" VerticalAlignment="Top" Width="170" Height="50" Background="#FF9C9C9C" Margin="0,0,180,0"/>
+
         </Grid>
-        
+
     </Grid>
 </Page>

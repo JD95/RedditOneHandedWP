@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.UI;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace RedditWP
@@ -23,7 +23,7 @@ namespace RedditWP
     public sealed partial class MainPage : Page
     {
         RedditPost focused = null;
-
+        int night = 0;
         string[] postTitles =
         {
             "fat kitty",
@@ -134,6 +134,24 @@ namespace RedditWP
             }
 
             // Otherwise the press event is ignored
+        }
+
+        private void nightbutton_Click(object sender, RoutedEventArgs e)
+        {
+            if (night == 0)
+            {
+                this.comments.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+                this.posts.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+                this.radialMenu.setNightMode();
+                night = 1;
+            }
+            else
+            {
+                this.comments.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                this.posts.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                this.radialMenu.revertNightMode();
+                night = 0;
+            }
         }
     }
 }

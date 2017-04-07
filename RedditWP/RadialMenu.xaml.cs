@@ -31,6 +31,28 @@ namespace RedditWP
             
         }
 
+        public void setNightMode()
+        {
+            this.circle.Fill = new SolidColorBrush(Windows.UI.Colors.Black);
+            this.button1.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+            this.button1.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+            this.button2.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+            this.button2.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+            this.button3.Background = new SolidColorBrush(Windows.UI.Colors.DarkGray);
+            this.button3.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+        }
+
+        public void revertNightMode()
+        {
+            this.circle.Fill = new SolidColorBrush(Windows.UI.Colors.White);
+            this.button1.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+            this.button1.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+            this.button2.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+            this.button2.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+            this.button3.Background = new SolidColorBrush(Windows.UI.Colors.Gray);
+            this.button3.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+        }
+
         public void setMenuOptions(string t1, RoutedEventHandler e1, string t2, RoutedEventHandler e2, string t3, RoutedEventHandler e3)
         {
             button1.Content = t1;
