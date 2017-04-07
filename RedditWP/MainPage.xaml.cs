@@ -28,14 +28,14 @@ namespace RedditWP
         {
             "fat kitty",
             "baby and her best friend",
-            "My husband met a fox on duty",
+            "My husband met a fox",
             "Look, no one cares",
             "Pocket kitten!",
             "I'll take 20",
             "Underwater battle",
             "glitch art",
             "I made this!",
-            "Someone should give him a push!"
+            "Someone needs a push!"
         };
 
         public MainPage()
@@ -46,11 +46,19 @@ namespace RedditWP
                 var post = new RedditPost(this);
                 post.setImage(i.ToString() + ".jpg");
                 post.setText(postTitles[i]);
-                post.PointerPressed += pressPost;
+                post.Tapped += pressPost;
                 this.posts.Items.Add(post);
             }
 
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
+            {
+                var post = new ImageViewCard();
+                post.setImage(i.ToString() + ".jpg");
+                post.setText(postTitles[i]);
+                this.imageview_posts.Items.Add(post);
+            }
+
+            for (int i = 0; i < 10; i++)
             {
                 this.comments.Items.Add(new PostComment("someone dumb", "This is a super bad comment!!! RAGE!"));
             }
@@ -95,7 +103,7 @@ namespace RedditWP
             BanishRadialMenu.Begin();
         }
 
-        public void pressPost(object sender, PointerRoutedEventArgs e)
+        public void pressPost(object sender, RoutedEventArgs e)
         {
             var post = sender as RedditPost;
             if (post == null) return;
@@ -134,6 +142,21 @@ namespace RedditWP
             }
 
             // Otherwise the press event is ignored
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if(imageview_posts.Visibility == Visibility.Visible)
+            {
+                imageview_posts.Visibility = Visibility.Collapsed;
+                postsPivot.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imageview_posts.Visibility = Visibility.Visible;
+                postsPivot.Visibility = Visibility.Collapsed;
+            }
+
         }
     }
 }
