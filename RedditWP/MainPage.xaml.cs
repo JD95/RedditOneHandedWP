@@ -51,7 +51,13 @@ namespace RedditWP
                 post.PointerPressed += pressPost;
                 this.posts.Items.Add(post);
             }
-
+            for (int i = 0; i < 10; i++)
+            {
+                var post = new ImageViewCard();
+                post.setImage(i.ToString() + ".jpg");
+                post.setText(postTitles[i]);
+                this.imageview_posts.Items.Add(post);
+            }
             for (int i = 0; i < 10; i++)
             {
                 this.comments.Items.Add(new PostComment("someone dumb", "This is a super bad comment!!! RAGE!"));
@@ -158,6 +164,20 @@ namespace RedditWP
                 this.posts.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 this.radialMenu.revertNightMode();
                 night = 0;
+            }
+        }
+
+        private void button_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            if (imageview_posts.Visibility == Visibility.Visible)
+            {
+                imageview_posts.Visibility = Visibility.Collapsed;
+                postsPivot.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imageview_posts.Visibility = Visibility.Visible;
+                postsPivot.Visibility = Visibility.Collapsed;
             }
         }
     }
