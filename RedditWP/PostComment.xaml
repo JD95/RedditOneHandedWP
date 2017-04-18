@@ -5,12 +5,11 @@
     xmlns:local="using:RedditWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignWidth="400" Height="172.455">
+    mc:Ignorable="d" Height="172.455" Width="359.867">
 
-    <Grid Background="#FFC5C5C5" Margin="0,0,0,0.333">
+    <Grid x:Name ="commentPost" Background="#FFC5C5C5" Margin="0,0,0,0.333">
         <TextBlock x:Name="userName" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="username" VerticalAlignment="Top" Width="160"/>
-        <TextBlock x:Name="commentText" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="130" Width="380"/>
+        <TextBlock x:Name="commentText" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="130" Width="350"/>
 
     </Grid>
 </UserControl>

@@ -21,7 +21,7 @@ namespace RedditWP
     public sealed partial class RedditPost : UserControl
     {
         MainPage main;
-
+        
         public RedditPost(MainPage m)
         {
             this.main = m;
@@ -64,6 +64,12 @@ namespace RedditWP
         private void menu_Click(object sender, RoutedEventArgs e)
         {
             main.summonRadialMenu();
+        }
+        public void nightMode()
+        {
+            this.postOptions.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            this.postGrid.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+            this.textBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
         }
     }
 }

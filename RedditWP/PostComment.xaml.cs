@@ -25,5 +25,9 @@ namespace RedditWP
             userName.Text = username;
             commentText.Text = text;
         }
+        public void nightMode()
+        {
+            this.commentPost.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+        }
     }
 }

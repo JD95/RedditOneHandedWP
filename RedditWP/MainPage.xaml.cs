@@ -13,29 +13,31 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI;
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace RedditWP
 {
+    
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
-    {
+    { 
         RedditPost focused = null;
         int night = 0;
         string[] postTitles =
         {
             "fat kitty",
             "baby and her best friend",
-            "My husband met a fox",
+            "My husband met a fox on duty",
             "Look, no one cares",
             "Pocket kitten!",
             "I'll take 20",
             "Underwater battle",
             "glitch art",
             "I made this!",
-            "Someone needs a push!"
+            "Someone should give him a push!"
         };
 
         public MainPage()
@@ -46,16 +48,8 @@ namespace RedditWP
                 var post = new RedditPost(this);
                 post.setImage(i.ToString() + ".jpg");
                 post.setText(postTitles[i]);
-                post.Tapped += pressPost;
+                post.PointerPressed += pressPost;
                 this.posts.Items.Add(post);
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                var post = new ImageViewCard();
-                post.setImage(i.ToString() + ".jpg");
-                post.setText(postTitles[i]);
-                this.imageview_posts.Items.Add(post);
             }
 
             for (int i = 0; i < 10; i++)
@@ -63,10 +57,10 @@ namespace RedditWP
                 this.comments.Items.Add(new PostComment("someone dumb", "This is a super bad comment!!! RAGE!"));
             }
 
-            radialMenu.setMenuOptions("upvote", switchToComments, 
-                                      "downvote", switchToComments, 
+            radialMenu.setMenuOptions("upvote", switchToComments,
+                                      "downvote", switchToComments,
                                       "comments", switchToComments);
-            radialMenu.PointerExited += (o,e) => { banishRadialMenu(); };
+            radialMenu.PointerExited += (o, e) => { banishRadialMenu(); };
         }
 
         public void switchToComments(object sender, RoutedEventArgs e)
@@ -89,7 +83,7 @@ namespace RedditWP
 
         public void summonRadialMenu()
         {
-            radialMenu.Margin =  new Thickness(292, 507, 0, 0);
+            radialMenu.Margin = new Thickness(352, 507, 0, 0);
             radialMenu.IsEnabled = true;
             radialMenu.Visibility = Visibility.Visible;
             SummonRadialMenu.Begin();
@@ -103,12 +97,12 @@ namespace RedditWP
             BanishRadialMenu.Begin();
         }
 
-        public void pressPost(object sender, RoutedEventArgs e)
+        public void pressPost(object sender, PointerRoutedEventArgs e)
         {
             var post = sender as RedditPost;
             if (post == null) return;
 
-            if(focused == null) // If nothing is currently focused, select this
+            if (focused == null) // If nothing is currently focused, select this
             {
                 // Focus the current post
                 focused = post;
@@ -144,14 +138,18 @@ namespace RedditWP
             // Otherwise the press event is ignored
         }
 
-<<<<<<< HEAD
         private void nightbutton_Click(object sender, RoutedEventArgs e)
         {
+            var post = new RedditPost(this);
+            var comment = new PostComment("", "");
             if (night == 0)
             {
+                
                 this.comments.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                 this.posts.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                 this.radialMenu.setNightMode();
+                post.nightMode();
+                comment.nightMode();
                 night = 1;
             }
             else
@@ -161,21 +159,6 @@ namespace RedditWP
                 this.radialMenu.revertNightMode();
                 night = 0;
             }
-=======
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            if(imageview_posts.Visibility == Visibility.Visible)
-            {
-                imageview_posts.Visibility = Visibility.Collapsed;
-                postsPivot.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                imageview_posts.Visibility = Visibility.Visible;
-                postsPivot.Visibility = Visibility.Collapsed;
-            }
-
->>>>>>> 802f1ab5a2b7ba01ac34d4c73745a857b2333f9a
         }
     }
 }

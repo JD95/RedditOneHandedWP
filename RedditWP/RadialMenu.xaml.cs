@@ -28,7 +28,7 @@ namespace RedditWP
         public RadialMenu()
         {
             this.InitializeComponent();
-            
+
         }
 
         public void setNightMode()
