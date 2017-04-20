@@ -144,6 +144,12 @@ namespace RedditWP
             // Otherwise the press event is ignored
         }
 
+        private void change_pivot_header_colors(SolidColorBrush color)
+        {
+            this.PivotHeader1.Foreground = color;
+            this.PivotHeader2.Foreground = color;
+        }
+
         private void nightbutton_Click(object sender, RoutedEventArgs e)
         {
             var post = new RedditPost(this);
@@ -153,7 +159,10 @@ namespace RedditWP
                 
                 this.comments.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                 this.posts.Background = new SolidColorBrush(Windows.UI.Colors.Black);
+                this.mainPage.Background = new SolidColorBrush(Windows.UI.Colors.Black);
                 this.radialMenu.setNightMode();
+                change_pivot_header_colors(new SolidColorBrush(Windows.UI.Colors.White));
+
                 post.nightMode();
                 comment.nightMode();
                 night = 1;
@@ -162,6 +171,10 @@ namespace RedditWP
             {
                 this.comments.Background = new SolidColorBrush(Windows.UI.Colors.White);
                 this.posts.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                this.mainPage.Background = new SolidColorBrush(Windows.UI.Colors.White);
+
+                change_pivot_header_colors(new SolidColorBrush(Windows.UI.Colors.Black));
+
                 this.radialMenu.revertNightMode();
                 night = 0;
             }
